@@ -2955,7 +2955,7 @@ const VolleyballCompleteLearningApp = () => {
 
           {/* Navigation Tabs */}
           <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
-            {['overview', 'hosts', 'brackets', 'signals', 'results'].map(tab => (
+            {['overview', 'hosts', 'brackets', 'results'].map(tab => (
               <div 
                 key={tab}
                 className={`tab-btn ${ncaaTab === tab ? 'active' : ''}`} 
@@ -2977,7 +2977,6 @@ const VolleyballCompleteLearningApp = () => {
                 {tab === 'overview' && 'KANSAS PATH'}
                 {tab === 'hosts' && '16 HOST SITES'}
                 {tab === 'brackets' && 'REGIONALS'}
-                {tab === 'signals' && 'REF SIGNALS'}
                 {tab === 'results' && '🏆 RESULTS'}
               </div>
             ))}
@@ -3514,54 +3513,7 @@ const VolleyballCompleteLearningApp = () => {
                 </div>
               )}
 
-          {/* TAB 4: REF SIGNALS */}
-          {ncaaTab === 'signals' && (
-            <div>
-              <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
-                <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '2rem', color: '#FFD93D', marginBottom: '0.5rem' }}>
-                  REFEREE SIGNALS
-                </h3>
-                <p style={{ color: '#DDDDDD', fontSize: '0.95rem' }}>Official hand signals used in volleyball</p>
-              </div>
-
-              <div style={{ padding: '2rem', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '8px', textAlign: 'center' }}>
-                <div style={{ fontSize: '1.1rem', color: '#FFD93D', marginBottom: '1rem', fontWeight: '700' }}>
-                  📋 OFFICIAL REFEREE SIGNALS CHART
-                </div>
-                <div style={{ marginBottom: '1.5rem' }}>
-                  <a 
-                    href="https://www.nfhs.org/media/886165/2016-17_volleyball_officials_signals.pdf" 
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ 
-                      display: 'inline-block',
-                      padding: '1rem 2rem', 
-                      background: '#E8000D', 
-                      color: '#FFFFFF',
-                      textDecoration: 'none',
-                      borderRadius: '4px',
-                      fontFamily: '"Bebas Neue", sans-serif',
-                      fontSize: '1.2rem',
-                      letterSpacing: '0.1em'
-                    }}
-                  >
-                    VIEW OFFICIAL SIGNALS PDF →
-                  </a>
-                </div>
-                <div style={{ fontSize: '0.85rem', color: '#888' }}>
-                  Opens official NFHS volleyball referee signals chart (PDF)
-                </div>
-              </div>
-
-              <div style={{ marginTop: '2rem', padding: '1rem', background: 'rgba(0, 81, 186, 0.1)', border: '2px solid rgba(0, 81, 186, 0.3)', borderRadius: '4px' }}>
-                <div style={{ fontSize: '0.9rem', color: '#85C1E9', lineHeight: '1.6' }}>
-                  <strong>💡 Tip:</strong> Familiarize yourself with common signals like "four hits," "double contact," "net violation," and "centerline violation" to better understand the game!
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* TAB 5: RESULTS */}
+          {/* TAB 4: RESULTS */}
           {ncaaTab === 'results' && (
             <div>
               <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
