@@ -1,0 +1,65 @@
+/* Fonts are bundled from src/assets rather than fetched from
+   fonts.googleapis.com. The original app @imported them from inside a
+   JS-injected <style> tag, which made them render-blocking and dependent on a
+   third-party host. Relative urls let Vite hash them and rewrite the base. */
+@font-face {
+  font-family: 'Bebas Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./assets/fonts/bebas-neue-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./assets/fonts/space-mono-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Space Mono';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./assets/fonts/space-mono-700.woff2') format('woff2');
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Space Mono', 'Courier New', monospace;
+  background: linear-gradient(135deg, #0051BA 0%, #001A57 100%);
+  color: #eee;
+  min-height: 100vh;
+}
+
+#root { width: 100%; }
+
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.8; transform: scale(1.05); } }
+@keyframes rotateIn { from { transform: rotate(-180deg) scale(0.5); opacity: 0; } to { transform: rotate(0deg) scale(1); opacity: 1; } }
+@keyframes slideIn { from { transform: translateX(-20px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+.player-marker { transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55); }
+.mode-toggle, .tab-btn { transition: all 0.3s ease; cursor: pointer; }
+.mode-toggle:hover, .tab-btn:hover { transform: translateY(-2px); }
+.mode-toggle.active { background: #0051BA !important; color: #ffffff !important; }
+.tab-btn.active { background: #E8000D !important; color: #ffffff !important; }
+.rule-card { transition: all 0.3s ease; cursor: pointer; }
+.rule-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(232, 0, 13, 0.3); }
+.quiz-option { transition: all 0.2s ease; cursor: pointer; }
+.quiz-option:hover { background: rgba(255, 255, 255, 0.15); }
+.quiz-option.selected { background: #0051BA; color: #ffffff; }
+.quiz-option.correct { background: #85C1E9; color: #001A57; }
+.quiz-option.incorrect { background: #E8000D; color: #ffffff; }
+
+/* The mode switchers are real buttons now, not clickable divs, so they need
+   their button defaults neutralised and a visible keyboard focus ring. */
+.mode-toggle { font: inherit; }
+.mode-toggle:focus-visible,
+.tab-btn:focus-visible { outline: 3px solid #FFD93D; outline-offset: 2px; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  .mode-toggle:hover, .tab-btn:hover, .rule-card:hover { transform: none; }
+}

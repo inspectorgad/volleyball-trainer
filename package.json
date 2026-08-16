@@ -1,0 +1,24 @@
+{
+  "name": "volleyball-trainer",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "description": "Volleyball training PWA — simulator, play-along, rules hub, Big 12 stats and season tracker",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.0.7",
+    "vite-plugin-pwa": "^0.21.1",
+    "vitest": "^4.1.10"
+  }
+}

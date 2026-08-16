@@ -1,227 +1,85 @@
-# 🏐 Volleyball Trainer - Complete Learning System
+# 🏐 Volleyball Trainer
 
-A comprehensive Progressive Web App (PWA) for learning volleyball rules, rotations, and tracking the NCAA 2025 Women's Volleyball Tournament.
+A Progressive Web App for learning volleyball rules, rotations and offensive
+systems, with Big 12 and NCAA tournament reference data.
 
-## 🌟 Features
+## Modes
 
-### 🎮 **4 Integrated Modes**
+1. **Simulator** — interactive court with 5-1, 6-2 and 4-2 systems. Attack
+   zones, blocking indicators, setter connections, rotation preview, defensive
+   and serve-receive formations, plus 8 scenario-based violation drills.
+2. **Play-Along** — step through a scripted 25-rally set and watch both teams'
+   rotations change with each side-out.
+3. **Rules Hub** — 20 rules by category, a 30-question quiz bank, 25 referee
+   signals, guided simulator demos and progress tracking.
+4. **Big 12 Stats** — compare up to four teams across eight metrics.
+5. **NCAA 2025** — tournament bracket, host sites and results.
 
-1. **Simulator Mode**
-   - Interactive court visualization with 5-1, 6-2, and 4-2 offensive systems
-   - Attack zones, blocking rules, and defensive formations
-   - Rotation preview with animated arrows
-   - Interactive scenario-based learning with 8 common violations
+## Tech
 
-2. **Play-Along Mode**
-   - Follow a complete volleyball set point-by-point
-   - Learn rules through 25 realistic rally scenarios
-   - See rotations change based on who wins each point
-   - Rule highlights explain key situations
+- **React 18** bundled by **Vite** — no CDN, no in-browser Babel
+- **vite-plugin-pwa** (Workbox) for the offline service worker and manifest
+- **Vitest** for the rotation logic
+- Self-hosted Bebas Neue and Space Mono
 
-3. **Rules Hub**
-   - 20 comprehensive rules organized by category
-   - Progress tracking system
-   - 30-question quiz bank with explanations
-   - Visual guide demonstrations
-   - Personalized study recommendations
+## Develop
 
-4. **NCAA 2025 Tournament**
-   - Live tournament bracket tracking
-   - Kansas Jayhawks path highlights
-   - 16 host site locations
-   - Sweet 16 & Elite 8 regional results
-   - Official referee signals guide
-   - Complete tournament results
-
-## 🚀 Live Demo
-
-**[View Live App](https://YOUR-USERNAME.github.io/volleyball-trainer/)** *(Update after deployment)*
-
-## 📱 Progressive Web App
-
-This app works as a PWA, meaning:
-- ✅ Install on any device (iOS, Android, Desktop)
-- ✅ Works offline after first visit
-- ✅ No app store required
-- ✅ Automatic updates
-- ✅ Fast loading with service worker caching
-
-## 🛠️ Tech Stack
-
-- **React 18** - UI framework
-- **Babel Standalone** - JSX compilation
-- **Service Workers** - Offline functionality
-- **Web Manifest** - PWA capabilities
-- **Lucide Icons** - Icon library
-- **Google Fonts** - Space Mono & Bebas Neue
-
-## 📦 Installation & Setup
-
-### Quick Deploy to GitHub Pages
-
-1. **Fork or clone this repository**
-   ```bash
-   git clone https://github.com/YOUR-USERNAME/volleyball-trainer.git
-   cd volleyball-trainer
-   ```
-
-2. **Create the icons folder** (see [Creating Icons](#creating-icons) below)
-
-3. **Commit and push to GitHub**
-   ```bash
-   git add .
-   git commit -m "Initial commit"
-   git push origin main
-   ```
-
-4. **Enable GitHub Pages**
-   - Go to repository Settings → Pages
-   - Source: Deploy from a branch
-   - Branch: `main` → `/root`
-   - Click Save
-
-5. **Your app will be live at:**
-   ```
-   https://YOUR-USERNAME.github.io/volleyball-trainer/
-   ```
-
-## 🎨 Creating Icons
-
-The app requires icons in the `/icons` folder. You have two options:
-
-### Option A: Generate from Logo (Recommended)
-
-1. Create a 512x512px volleyball-themed logo (blue/crimson KU colors)
-2. Use [PWA Asset Generator](https://github.com/elegantapp/pwa-asset-generator):
-   ```bash
-   npx pwa-asset-generator logo.png ./icons -m ./manifest.json
-   ```
-
-### Option B: Use Placeholder Icons
-
-1. Use [Favicon.io](https://favicon.io/favicon-generator/) to create basic icons
-2. Generate these sizes: 16, 32, 72, 96, 128, 144, 152, 192, 384, 512
-3. Save to `/icons` folder
-
-Required icon files:
-```
-icons/
-├── icon-16x16.png
-├── icon-32x32.png
-├── icon-72x72.png
-├── icon-96x96.png
-├── icon-128x128.png
-├── icon-144x144.png
-├── icon-152x152.png
-├── icon-192x192.png
-├── icon-384x384.png
-└── icon-512x512.png
-```
-
-## 📁 Project Structure
-
-```
-volleyball-trainer/
-├── index.html              # Main app (standalone HTML)
-├── manifest.json           # PWA manifest
-├── service-worker.js       # Service worker for offline
-├── README.md              # This file
-├── .gitignore             # Git ignore rules
-├── icons/                 # App icons (create this)
-│   ├── icon-*.png
-│   └── ...
-└── screenshots/           # Optional: App screenshots
-    ├── simulator.png
-    └── tournament.png
-```
-
-## 🔧 Development
-
-### Local Testing
-
-Simply open `index.html` in your browser. No build process required!
-
-For testing PWA features locally:
 ```bash
-# Use a local server (required for service workers)
-python -m http.server 8000
-# Or
-npx serve
+npm install
+npm run dev      # dev server with HMR
+npm test         # rotation unit tests
+npm run build    # production build into dist/
+npm run preview  # serve the built output
 ```
 
-Then visit: `http://localhost:8000`
+## Deploy
 
-### Updating Tournament Results
+Pushing to `main` runs `.github/workflows/deploy-pages.yml`, which tests,
+builds and publishes `dist/` to GitHub Pages.
 
-Edit `index.html` and find the tournament data sections:
-- First Round: Line ~3610
-- Second Round: Line ~3650
-- Sweet 16: Line ~3690
-- Elite 8: Line ~3700
+**One-time setup:** Settings → Pages → Source → **GitHub Actions**. The old
+"deploy from a branch" setting will not work any more — the repo root
+`index.html` is a module entry that only resolves after bundling.
 
-Update the game objects with new scores and winners.
+The app is served from `/volleyball-trainer/`, set as `base` in
+`vite.config.js`. Change it there if the repo is renamed or moved to a custom
+domain.
 
-## 🎯 Key Features Implementation
+## Layout
 
-### Rotation Simulator
-- 6 court positions with visual player markers
-- Real-time rotation logic following FIVB rules
-- Color-coded roles (Setter, Outside, Middle, Opposite)
-- Attack zone overlays showing legal attack areas
+```
+index.html              module entry (~25 lines)
+vite.config.js          base path, PWA manifest, Vitest config
+public/                 icons, referee signal chart — copied verbatim
+src/
+  main.jsx              React root
+  App.jsx               state container and mode router
+  styles.css            globals, animations, @font-face
+  assets/fonts/         self-hosted woff2
+  data/                 rules, questions, signals, scenarios, formations,
+                        systems, Big 12 teams, the Play-Along set
+  lib/rotation.js       rotation maths (unit tested)
+  components/           Icons, CourtDisplay
+  modes/                Simulator, PlayAlong, RulesHub, Big12, Ncaa
+```
 
-### Rule Learning
-- Interactive scenarios with instant feedback
-- Quiz system with randomized questions
-- Progress tracking with localStorage
-- Category-based organization
+Content lives in `src/data/` — editing a rule, question or scenario no longer
+means scrolling a 3,700-line HTML file.
 
-### Tournament Tracking
-- Kansas Jayhawks special highlighting (🎯 emoji + crimson border)
-- Multi-tab interface for easy navigation
-- Regional bracket visualization
-- Automatic score formatting
+## Updating the service worker
 
-## 🏀 Kansas Jayhawks Colors
+Nothing to do. Workbox revisions every asset by content hash on each build, so
+the old routine of hand-bumping a `CACHE_NAME` constant is gone.
 
-- **Blue**: `#0051BA` - Primary brand color
-- **Crimson**: `#E8000D` - Accent color
-- **Light Blue**: `#85C1E9` - Highlights
+## Notes
 
-## 📄 License
+- `src/lib/rotation.js` documents one deliberate behaviour change against the
+  pre-Vite app: the 5-1 explanation used to report the setter as back row in
+  every rotation. It now reads the setter's court position, so rotations 4, 5
+  and 6 correctly say front row.
+- Big 12 figures are the 2025 final season. Wiring these to the live feed is
+  planned separately.
 
-MIT License - Feel free to use, modify, and distribute!
+## License
 
-## 🤝 Contributing
-
-Contributions welcome! Please:
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
-
-## 🐛 Known Issues
-
-- ESPN API currently returns 403 errors (tournament data updated manually)
-- Service worker cache needs manual version bump for major updates
-
-## 💡 Future Enhancements
-
-- [ ] Push notifications for tournament updates
-- [ ] Team comparison charts
-- [ ] Video demonstrations
-- [ ] Multiplayer quiz mode
-- [ ] Export quiz results
-
-## 👏 Credits
-
-- **Rules Content**: Based on NCAA/FIVB official volleyball rules
-- **Tournament Data**: NCAA.com and ESPN
-- **Design**: Custom KU Jayhawks-themed interface
-
-## 📧 Contact
-
-Questions or feedback? Open an issue on GitHub!
-
----
-
-**Rock Chalk Jayhawk! 🏐💙**
+MIT

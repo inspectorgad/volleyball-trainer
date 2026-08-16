@@ -1,0 +1,15 @@
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# vite-plugin-pwa output (generated into dist/ at build time)
+dev-dist/
+
+.DS_Store
+*.log
+npm-debug.log*
+.vite/
+.idea/
+.vscode/*
+!.vscode/extensions.json
