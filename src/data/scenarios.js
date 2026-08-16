@@ -96,5 +96,33 @@ export const scenarios = [
       { id: 'legal', name: 'Legal serve - play continues', legal: true, explanation: 'CORRECT! As long as the serve goes over the net into the opponent\'s court, it\'s legal even if it touches the net. This is called a "let serve."' },
       { id: 'reserve', name: 'Reserve - serve again', legal: false, explanation: 'INCORRECT! There are no re-serves for net contact. If it goes over, it\'s in play.' }
     ]
+  },
+
+  // ---- 2026 rule changes ---------------------------------------------------
+  {
+    id: 9,
+    title: "Center Line Fault",
+    description: "Your hitter lands after an attack and her whole foot comes down completely across the center line. No opponent is nearby. What is the call?",
+    playerPosition: 4, // Left front attacker landing at the net
+    action: "center_line",
+    new2026: true,
+    zones: [
+      { id: 'legal', name: 'Legal - nobody was interfered with', legal: false, explanation: 'INCORRECT as of 2026. Interference used to be what made this a fault. Now the completely-crossed foot is a fault on its own.' },
+      { id: 'fault', name: 'Fault - the foot completely crossed', legal: true, explanation: 'CORRECT! New for 2026, a foot completely crossing the center line is a fault by itself. Note the limits: touching the line or partly crossing is still fine, and other body parts may cross completely as long as they do not interfere. A coach may challenge this call.' },
+      { id: 'warning', name: 'Warning first, fault if it happens again', legal: false, explanation: 'INCORRECT! There is no warning step. The point goes to the opponent immediately.' }
+    ]
+  },
+  {
+    id: 10,
+    title: "Pursuit Outside the Antenna",
+    description: "A hard dig sends the ball over the net outside the antenna. Your libero chases it into the opponent's free zone. What can she do?",
+    playerPosition: 5, // Back-left defender chasing
+    action: "pursuit",
+    new2026: true,
+    zones: [
+      { id: 'dead', name: 'Nothing - the ball is dead', legal: false, explanation: 'INCORRECT as of 2026. The new pursuit rule lets her chase the ball down and play it back to a teammate.' },
+      { id: 'back', name: 'Play it back outside the antenna on the same side', legal: true, explanation: 'LEGAL! That is exactly the pursuit rule. She must not cross under the net, net cable or referee platform, and the ball has to re-cross the net plane outside the antenna on the same side it left.' },
+      { id: 'across', name: 'Play it directly back over the net to the opponent', legal: false, explanation: 'INCORRECT! The ball has to come back to her own side, outside the same antenna. Sending it straight over does not satisfy the rule.' }
+    ]
   }
 ];

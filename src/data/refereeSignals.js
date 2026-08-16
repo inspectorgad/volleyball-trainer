@@ -15,7 +15,7 @@ export const refereeSignals = [
   { id: 12, category: 'Violations', name: 'Four Hits', description: 'Referee raises four fingers, spread open.', gesture: '🖐️ Four fingers raised', illustration: 'Four fingers extended upward' },
   { id: 13, category: 'Violations', name: 'Net Touched by Player', description: 'Referee indicates with the hand on the side of the team that committed the fault, the corresponding hand touching net.', gesture: '🥅 Hand touches net', illustration: 'Hand placed on net at fault side' },
   { id: 14, category: 'Violations', name: 'Reaching Beyond the Net', description: 'Referee places hand above the net, palm facing downwards.', gesture: '🚫 Palm down over net', illustration: 'Hand extended over net, palm down' },
-  { id: 15, category: 'Violations', name: 'Penetration Under Net / Service Fault', description: 'Referee points to center line or respective line.', gesture: '👇 Pointing to line', illustration: 'Finger pointing at center/service line' },
+  { id: 15, category: 'Violations', name: 'Penetration Under Net / Service Fault', description: 'Referee points to center line or respective line. From 2026 the center line standard is a foot completely across; other body parts may cross if they do not interfere.', gesture: '👇 Pointing to line', illustration: 'Finger pointing at center/service line', changed2026: true },
   { id: 16, category: 'Violations', name: 'Attack Hit Fault', description: 'Referee makes downward motion with forearm, hand open.', gesture: '↘️ Downward chop motion', illustration: 'Forearm swinging down' },
   { id: 17, category: 'Violations', name: 'Blocking Fault', description: 'Referee raises both arms vertically, palms forward.', gesture: '🙌 Both arms up, palms forward', illustration: 'Arms raised high, palms out' },
   { id: 18, category: 'Violations', name: 'Positional/Rotation Fault', description: 'Referee makes circular motion with forefinger.', gesture: '☝️ Circular finger motion', illustration: 'Index finger making circles' },
@@ -25,5 +25,8 @@ export const refereeSignals = [
   { id: 22, category: 'Administrative', name: 'Misconduct Penalty', description: 'Referee shows a red card.', gesture: '🟥 Red card held up', illustration: 'Red card displayed' },
   { id: 23, category: 'Administrative', name: 'Expulsion', description: 'Referee shows cards jointly (yellow and red).', gesture: '🟨🟥 Both cards shown together', illustration: 'Yellow and red cards held together' },
   { id: 24, category: 'Administrative', name: 'Disqualification', description: 'Referee shows yellow and red cards separately.', gesture: '🟨➡️🟥 Cards shown separately', illustration: 'Yellow card then red card shown' },
-  { id: 25, category: 'Administrative', name: 'Double Fault & Replay', description: 'Referee raises both thumbs vertically.', gesture: '👍👍 Both thumbs up', illustration: 'Two thumbs raised' }
+  { id: 25, category: 'Administrative', name: 'Double Fault & Replay', description: 'Referee raises both thumbs vertically.', gesture: '👍👍 Both thumbs up', illustration: 'Two thumbs raised' },
+  // New for 2026. A coach's signal rather than a referee's, but this is where
+  // people look it up.
+  { id: 26, category: 'Challenges', name: 'Challenge Request (Head Coach)', description: 'The head coach forms a "C" with both hands, immediately after the play in question and before any timeout is initiated. This replaces the challenge card.', gesture: '🤲 Hands form a "C"', illustration: 'Both hands shaped into the letter C', new2026: true }
 ];

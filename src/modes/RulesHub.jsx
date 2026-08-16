@@ -1,6 +1,6 @@
 // Rules Hub: reference, quiz, referee signals and guided simulator demos.
 import React from 'react';
-import { rulesData } from '../data/rules.js';
+import { rulesData, NEW_2026, rules2026Count } from '../data/rules.js';
 import { allQuestions } from '../data/questions.js';
 import { refereeSignals } from '../data/refereeSignals.js';
 import { demonstrations } from '../data/demonstrations.js';
@@ -19,6 +19,14 @@ export default function RulesHub({
   generateQuiz, handleQuizAnswer, submitQuiz, resetQuiz,
   markRuleStudied, getRecommendations,
 }) {
+  // The category chips are shared with the rules list, so the signals tab has
+  // to understand the 2026 sentinel too — otherwise picking it showed nothing.
+  const matchesSignalFilter = (signal) =>
+    selectedCategory === 'all' ||
+    (selectedCategory === NEW_2026
+      ? Boolean(signal.new2026 || signal.changed2026)
+      : signal.category.toLowerCase() === selectedCategory.toLowerCase());
+
   return (
     <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
       <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
@@ -44,8 +52,8 @@ export default function RulesHub({
 
           <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
             {categories.map(cat => (
-              <div key={cat} onClick={() => setSelectedCategory(cat)} style={{ padding: '0.5rem 1rem', background: selectedCategory === cat ? '#4ECDC4' : 'rgba(255, 255, 255, 0.1)', border: '2px solid', borderColor: selectedCategory === cat ? '#4ECDC4' : 'rgba(255, 255, 255, 0.2)', borderRadius: '20px', fontSize: '0.85rem', cursor: 'pointer', color: selectedCategory === cat ? '#0f0f23' : '#eee', fontWeight: selectedCategory === cat ? '700' : '400' }}>
-                {cat.toUpperCase()}
+              <div key={cat} onClick={() => setSelectedCategory(cat)} style={{ padding: '0.5rem 1rem', background: selectedCategory === cat ? (cat === NEW_2026 ? '#FFC92D' : '#4ECDC4') : (cat === NEW_2026 ? 'rgba(255, 201, 45, 0.12)' : 'rgba(255, 255, 255, 0.1)'), border: '2px solid', borderColor: selectedCategory === cat ? (cat === NEW_2026 ? '#FFC92D' : '#4ECDC4') : (cat === NEW_2026 ? 'rgba(255, 201, 45, 0.5)' : 'rgba(255, 255, 255, 0.2)'), borderRadius: '20px', fontSize: '0.85rem', cursor: 'pointer', color: selectedCategory === cat ? '#0f0f23' : (cat === NEW_2026 ? '#FFD866' : '#eee'), fontWeight: selectedCategory === cat || cat === NEW_2026 ? '700' : '400' }}>
+                {cat.toUpperCase()}{cat === NEW_2026 ? ` · ${rules2026Count}` : ''}
               </div>
             ))}
           </div>
@@ -62,11 +70,26 @@ export default function RulesHub({
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))', gap: '1.5rem' }}>
             {filteredRules.map(rule => (
-              <div key={rule.id} className="rule-card" onClick={() => markRuleStudied(rule.id)} style={{ background: 'rgba(255, 255, 255, 0.05)', border: '2px solid rgba(255, 255, 255, 0.1)', borderRadius: '8px', padding: '1.5rem', position: 'relative' }}>
+              <div key={rule.id} className="rule-card" onClick={() => markRuleStudied(rule.id)} style={{ background: rule.new2026 || rule.changed2026 ? 'rgba(255, 201, 45, 0.07)' : 'rgba(255, 255, 255, 0.05)', border: '2px solid', borderColor: rule.new2026 || rule.changed2026 ? 'rgba(255, 201, 45, 0.45)' : 'rgba(255, 255, 255, 0.1)', borderRadius: '8px', padding: '1.5rem', position: 'relative' }}>
                 {studiedRules.has(rule.id) && <div style={{ position: 'absolute', top: '1rem', right: '1rem' }}><CheckCircle size={24} color="#95E1D3" /></div>}
-                <div style={{ display: 'inline-block', padding: '0.25rem 0.75rem', background: 'rgba(255, 140, 90, 0.25)', border: '1px solid rgba(255, 140, 90, 0.6)', borderRadius: '12px', fontSize: '0.75rem', marginBottom: '0.75rem', color: '#FF8C5A', fontWeight: '700' }}>{rule.category}</div>
+                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center', marginBottom: '0.75rem' }}>
+                  <span style={{ display: 'inline-block', padding: '0.25rem 0.75rem', background: 'rgba(255, 140, 90, 0.25)', border: '1px solid rgba(255, 140, 90, 0.6)', borderRadius: '12px', fontSize: '0.75rem', color: '#FF8C5A', fontWeight: '700' }}>{rule.category}</span>
+                  {(rule.new2026 || rule.changed2026) && (
+                    <span style={{ display: 'inline-block', padding: '0.25rem 0.6rem', background: '#FFC92D', borderRadius: '3px', fontSize: '0.7rem', color: '#3B2A00', fontWeight: '700', letterSpacing: '0.08em' }}>
+                      {rule.new2026 ? 'NEW 2026' : 'REVISED 2026'}
+                    </span>
+                  )}
+                  {rule.experimental && (
+                    <span style={{ display: 'inline-block', padding: '0.25rem 0.6rem', background: 'rgba(255, 201, 45, 0.18)', border: '1px solid rgba(255, 201, 45, 0.5)', borderRadius: '3px', fontSize: '0.7rem', color: '#FFD866', fontWeight: '700', letterSpacing: '0.08em' }}>EXPERIMENTAL</span>
+                  )}
+                </div>
                 <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.5rem', color: '#5FE0D8', margin: '0.5rem 0', letterSpacing: '0.05em' }}>{rule.title}</h3>
                 <p style={{ fontSize: '0.9rem', lineHeight: '1.6', color: '#e0e0e0', margin: '1rem 0' }}>{rule.content}</p>
+                {rule.was && (
+                  <p style={{ fontSize: '0.8rem', lineHeight: '1.55', color: '#FFD866', margin: '0 0 1rem', paddingTop: '0.75rem', borderTop: '1px dashed rgba(255, 201, 45, 0.35)' }}>
+                    <strong style={{ letterSpacing: '0.06em' }}>BEFORE 2026: </strong>{rule.was}
+                  </p>
+                )}
                 <div style={{ fontSize: '0.75rem', color: '#b0b0b0', fontStyle: 'italic' }}>Difficulty: {rule.difficulty}</div>
               </div>
             ))}
@@ -327,7 +350,7 @@ export default function RulesHub({
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '1.5rem' }}>
             {refereeSignals
-              .filter(signal => selectedCategory === 'all' || signal.category.toLowerCase() === selectedCategory.toLowerCase())
+              .filter(matchesSignalFilter)
               .map(signal => (
                 <div 
                   key={signal.id} 
@@ -372,7 +395,7 @@ export default function RulesHub({
               ))}
           </div>
 
-          {refereeSignals.filter(signal => selectedCategory === 'all' || signal.category.toLowerCase() === selectedCategory).length === 0 && (
+          {refereeSignals.filter(matchesSignalFilter).length === 0 && (
             <div style={{ textAlign: 'center', padding: '3rem', color: '#b0b0b0' }}>
               <AlertCircle size={48} style={{ marginBottom: '1rem', opacity: 0.5 }} />
               <p>No signals found in this category.</p>

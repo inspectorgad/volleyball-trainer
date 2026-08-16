@@ -10,8 +10,10 @@ systems, with Big 12 and NCAA tournament reference data.
    and serve-receive formations, plus 8 scenario-based violation drills.
 2. **Play-Along** — step through a scripted 25-rally set and watch both teams'
    rotations change with each side-out.
-3. **Rules Hub** — 20 rules by category, a 30-question quiz bank, 25 referee
-   signals, guided simulator demos and progress tracking.
+3. **Rules Hub** — 29 rules by category, a 38-question quiz bank, 26 referee
+   signals, guided simulator demos and progress tracking. A "New for 2026"
+   filter isolates the 11 entries the 2026 rules changes touched, each showing
+   a **Before 2026** line with the previous position and the NCAA rule number.
 4. **Big 12 Stats** — compare up to four teams across eight metrics.
 5. **NCAA 2025** — tournament bracket, host sites and results.
 
@@ -71,14 +73,31 @@ means scrolling a 3,700-line HTML file.
 Nothing to do. Workbox revisions every asset by content hash on each build, so
 the old routine of hand-bumping a `CACHE_NAME` constant is gone.
 
+## 2026 rules
+
+Content is current to the NCAA 2026 and 2027 women's volleyball rules changes,
+taken from the Division I and the Divisions II/III change documents. Thirteen
+changes apply to all divisions; the one divisional difference is substitutions,
+where Division I stays at 15 per set and Divisions II and III moved to 18.
+
+Headline changes carried into the app: the centre line fault (a foot
+*completely* across is now a fault on its own), centre line becoming
+challengeable, the "C" hand signal replacing the challenge card, the pursuit
+rule, the screening restriction, misconduct sanctions lasting the whole match,
+75-second timeouts with an optional 15-point technical timeout, and the
+end-of-second-set side switch.
+
+`src/data/content.test.js` pins these facts so a later edit cannot quietly
+restore the pre-2026 numbers.
+
 ## Notes
 
 - `src/lib/rotation.js` documents one deliberate behaviour change against the
   pre-Vite app: the 5-1 explanation used to report the setter as back row in
   every rotation. It now reads the setter's court position, so rotations 4, 5
   and 6 correctly say front row.
-- Big 12 figures are the 2025 final season. Wiring these to the live feed is
-  planned separately.
+- Big 12 figures are the 2025 final season, and the fifth tab is still the 2025
+  tournament. Wiring both to the live feed is the next piece of work.
 
 ## License
 

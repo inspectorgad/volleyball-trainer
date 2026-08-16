@@ -7,7 +7,7 @@ import React, { useState, useEffect } from 'react';
 
 import { systemRoles } from './data/systems.js';
 import { matchData } from './data/matchData.js';
-import { rulesData } from './data/rules.js';
+import { rulesData, ruleCategories, is2026Rule, NEW_2026 } from './data/rules.js';
 import { allQuestions } from './data/questions.js';
 import { scenarios } from './data/scenarios.js';
 import { big12TeamsData } from './data/big12Teams.js';
@@ -75,7 +75,9 @@ export default function App() {
   }, []);
 
   const roles = systemRoles[offensiveSystem];
-  const categories = ['all', 'Scoring', 'Violations', 'Positions', 'Libero', 'Service', 'Blocking', 'Substitution', 'Timeouts'];
+  // Derived from the rules themselves, so a rule in a new category shows up in
+  // the filter row without a second edit here.
+  const categories = ruleCategories;
 
   // Functions
   const nextRotation = () => {
@@ -127,7 +129,9 @@ export default function App() {
   const isMatchComplete = currentPointIndex >= matchData.points.length;
 
   const filteredRules = rulesData.filter(rule => {
-    const matchesCategory = selectedCategory === 'all' || rule.category === selectedCategory;
+    const matchesCategory =
+      selectedCategory === 'all' ||
+      (selectedCategory === NEW_2026 ? is2026Rule(rule) : rule.category === selectedCategory);
     const matchesSearch = rule.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
                          rule.content.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesCategory && matchesSearch;
