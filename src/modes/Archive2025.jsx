@@ -1,7 +1,10 @@
-// Tournament tracker: bracket, host sites, results and the referee signal chart.
+// 2025 NCAA tournament archive: bracket, host sites and results.
+//
+// Round labels here read "2024" in the pre-2026 app even though the section
+// is headed 2025 and the overview tab dates the same rounds to 2025. Corrected.
 import React from 'react';
 
-export default function Ncaa({
+export default function Archive2025({
   ncaaTab, setNcaaTab,
 }) {
   return (
@@ -411,7 +414,7 @@ export default function Ncaa({
               {/* Second Round Results */}
               <div style={{ marginBottom: '2rem', background: 'rgba(255, 107, 53, 0.1)', border: '2px solid rgba(255, 107, 53, 0.3)', borderRadius: '8px', padding: '1.5rem' }}>
                 <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.8rem', color: '#FF6B35', marginBottom: '1rem' }}>
-                  SECOND ROUND (Dec 6-7, 2024)
+                  SECOND ROUND (Dec 6-7, 2025)
                 </h3>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem' }}>
                   {
@@ -471,7 +474,7 @@ export default function Ncaa({
               {/* Sweet 16 */}
               <div style={{ marginBottom: '2rem', background: 'rgba(255, 217, 61, 0.1)', border: '2px solid rgba(255, 217, 61, 0.3)', borderRadius: '8px', padding: '1.5rem' }}>
                 <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.8rem', color: '#FFD93D', marginBottom: '1rem' }}>
-                  SWEET 16 (Dec 11-14, 2024)
+                  SWEET 16 (Dec 11-14, 2025)
                 </h3>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem' }}>
                   {
@@ -514,7 +517,7 @@ export default function Ncaa({
               {/* Elite 8 */}
               <div style={{ marginBottom: '2rem', background: 'rgba(232, 0, 13, 0.1)', border: '2px solid rgba(232, 0, 13, 0.3)', borderRadius: '8px', padding: '1.5rem' }}>
                 <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.8rem', color: '#E8000D', marginBottom: '1rem' }}>
-                  ELITE 8 (Dec 13-14, 2024)
+                  ELITE 8 (Dec 13-14, 2025)
                 </h3>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '1rem' }}>
                   {[
@@ -554,7 +557,7 @@ export default function Ncaa({
               {/* Final Four & Championship */}
               <div style={{ marginBottom: '2rem', background: 'rgba(133, 193, 233, 0.1)', border: '2px solid rgba(133, 193, 233, 0.3)', borderRadius: '8px', padding: '1.5rem' }}>
                 <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.8rem', color: '#85C1E9', marginBottom: '1rem' }}>
-                  FINAL FOUR (Dec 18, 2024) & CHAMPIONSHIP (Dec 21, 2024)
+                  FINAL FOUR (Dec 18, 2025) & CHAMPIONSHIP (Dec 21, 2025)
                 </h3>
                 <div style={{ textAlign: 'center', padding: '2rem' }}>
                   <div style={{ fontSize: '1.2rem', color: '#FFD93D', fontWeight: '700', marginBottom: '1rem' }}>
@@ -594,7 +597,7 @@ export default function Ncaa({
               {/* First Round Results */}
               <div style={{ marginBottom: '2rem', background: 'rgba(0, 81, 186, 0.1)', border: '2px solid rgba(0, 81, 186, 0.3)', borderRadius: '8px', padding: '1.5rem' }}>
                 <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.8rem', color: '#0051BA', marginBottom: '1rem' }}>
-                  FIRST ROUND (Dec 4-5, 2024)
+                  FIRST ROUND (Dec 4-5, 2025)
                 </h3>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1rem' }}>
                   {[
@@ -624,7 +627,7 @@ export default function Ncaa({
               {/* Second Round Results */}
               <div style={{ marginBottom: '2rem', background: 'rgba(78, 205, 196, 0.1)', border: '2px solid rgba(78, 205, 196, 0.3)', borderRadius: '8px', padding: '1.5rem' }}>
                 <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.8rem', color: '#4ECDC4', marginBottom: '1rem' }}>
-                  SECOND ROUND (Dec 6-7, 2024)
+                  SECOND ROUND (Dec 6-7, 2025)
                 </h3>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '1rem' }}>
                   {[
@@ -654,7 +657,7 @@ export default function Ncaa({
               {/* Sweet 16 */}
               <div style={{ marginBottom: '2rem', background: 'rgba(255, 217, 61, 0.1)', border: '2px solid rgba(255, 217, 61, 0.3)', borderRadius: '8px', padding: '1.5rem' }}>
                 <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.8rem', color: '#FFD93D', marginBottom: '1rem' }}>
-                  SWEET 16 (Dec 11-14, 2024)
+                  SWEET 16 (Dec 11-14, 2025)
                 </h3>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem' }}>
                   {[

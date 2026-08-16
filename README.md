@@ -14,14 +14,19 @@ systems, with Big 12 and NCAA tournament reference data.
    signals, guided simulator demos and progress tracking. A "New for 2026"
    filter isolates the 11 entries the 2026 rules changes touched, each showing
    a **Before 2026** line with the previous position and the NCAA rule number.
-4. **Big 12 Stats** — compare up to four teams across eight metrics.
-5. **NCAA 2025** — tournament bracket, host sites and results.
+4. **Big 12 Stats** — live conference standings and rankings from the feed,
+   plus Kansas per-set rates derived from box scores. The hand-entered 2025
+   season, the only place per-set numbers exist for all fifteen teams, stays
+   available as an archive with the four-team comparison chart.
+5. **2026 Season** — Kansas schedule and results, national polls and the
+   championship placeholder, synced from the ku-volleyball feed. The 2025
+   tournament bracket, host sites and results are kept under its Archive tab.
 
 ## Tech
 
 - **React 18** bundled by **Vite** — no CDN, no in-browser Babel
 - **vite-plugin-pwa** (Workbox) for the offline service worker and manifest
-- **Vitest** for the rotation logic
+- **Vitest** for the rotation logic, the season selectors and the feed loader
 - Self-hosted Bebas Neue and Space Mono
 
 ## Develop
@@ -61,8 +66,11 @@ src/
   data/                 rules, questions, signals, scenarios, formations,
                         systems, Big 12 teams, the Play-Along set
   lib/rotation.js       rotation maths (unit tested)
+  lib/season.js         pure selectors over the season feed (unit tested)
+  lib/seasonFeed.js     cache-first fetch of the feed (unit tested)
   components/           Icons, CourtDisplay
-  modes/                Simulator, PlayAlong, RulesHub, Big12, Ncaa
+  modes/                Simulator, PlayAlong, RulesHub, Big12, Season,
+                        Archive2025
 ```
 
 Content lives in `src/data/` — editing a rule, question or scenario no longer
@@ -96,8 +104,34 @@ restore the pre-2026 numbers.
   pre-Vite app: the 5-1 explanation used to report the setter as back row in
   every rotation. It now reads the setter's court position, so rotations 4, 5
   and 6 correctly say front row.
-- Big 12 figures are the 2025 final season, and the fifth tab is still the 2025
-  tournament. Wiring both to the live feed is the next piece of work.
+- The 2025 tournament archive had seven round labels reading 2024 inside a
+  section headed 2025. Corrected.
+
+## Season data
+
+Live data comes from the nightly scrape in
+[inspectorgad/ku-volleyball](https://github.com/inspectorgad/ku-volleyball),
+read straight from its published seed:
+
+```
+https://raw.githubusercontent.com/inspectorgad/ku-volleyball/main/app/src/main/assets/seed.json
+```
+
+That host sends `access-control-allow-origin: *`, so the browser fetches it
+directly — there is no scraper and no proxy in this repo. The GitHub Pages copy
+of the same file is a fallback if the raw host is unreachable.
+
+Loading is cache-first: the last copy is mirrored into `localStorage` and
+painted immediately, then revalidated in the background and only rewritten when
+`generatedAt` moves. The service worker also keeps the response under a
+`NetworkFirst` rule, so the season screens work offline after one visit. If
+there is neither cache nor network the season screens say so plainly, and
+Simulator, Play-Along and Rules Hub are unaffected — none of them touch the
+network.
+
+The feed carries records and rankings for all fifteen Big 12 teams but per-set
+stats only for Kansas, because the scrape captures box scores for Kansas
+matches. The Big 12 tab is built around that limit rather than hiding it.
 
 ## License
 

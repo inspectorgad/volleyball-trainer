@@ -29,6 +29,23 @@ export default defineConfig({
         globPatterns: ['**/*.{js,css,html,png,svg,woff2}'],
         cleanupOutdatedCaches: true,
         navigateFallback: `${BASE}index.html`,
+        runtimeCaching: [
+          {
+            // The season feed is cross-origin, so it cannot be precached.
+            // NetworkFirst keeps it fresh online and still serves the last
+            // copy offline; the app also mirrors it into localStorage so the
+            // first paint does not wait on the network at all.
+            urlPattern:
+              /^https:\/\/(raw\.githubusercontent\.com|inspectorgad\.github\.io)\/.*(seed|season-data)\.json$/,
+            handler: 'NetworkFirst',
+            options: {
+              cacheName: 'season-feed',
+              networkTimeoutSeconds: 10,
+              expiration: { maxEntries: 4, maxAgeSeconds: 7 * 24 * 60 * 60 },
+              cacheableResponse: { statuses: [0, 200] },
+            },
+          },
+        ],
       },
       manifest: {
         // `id` and `scope` are what a Trusted Web Activity matches against;

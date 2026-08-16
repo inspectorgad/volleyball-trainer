@@ -4,7 +4,6 @@ import { rulesData, NEW_2026, rules2026Count } from '../data/rules.js';
 import { allQuestions } from '../data/questions.js';
 import { refereeSignals } from '../data/refereeSignals.js';
 import { demonstrations } from '../data/demonstrations.js';
-import { scenarios } from '../data/scenarios.js';
 import { Play, Award, AlertCircle, BookOpen, Trophy, CheckCircle, XCircle, TrendingUp, RefreshCw, Eye } from '../components/Icons.jsx';
 
 export default function RulesHub({

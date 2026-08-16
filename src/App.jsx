@@ -12,19 +12,21 @@ import { allQuestions } from './data/questions.js';
 import { scenarios } from './data/scenarios.js';
 import { big12TeamsData } from './data/big12Teams.js';
 import { advanceRotation, buildExplanation } from './lib/rotation.js';
+import { loadSeasonFeed } from './lib/seasonFeed.js';
+import { latestSeason } from './lib/season.js';
 
 import Simulator from './modes/Simulator.jsx';
 import PlayAlong from './modes/PlayAlong.jsx';
 import RulesHub from './modes/RulesHub.jsx';
 import Big12 from './modes/Big12.jsx';
-import Ncaa from './modes/Ncaa.jsx';
+import Season from './modes/Season.jsx';
 
 const MODES = [
   ['simulator', 'SIMULATOR'],
   ['playalong', 'PLAY-ALONG'],
   ['rules', 'RULES HUB'],
   ['big12', 'BIG 12 STATS'],
-  ['ncaa', 'NCAA 2025'],
+  ['season', '2026 SEASON'],
 ];
 
 export default function App() {
@@ -69,10 +71,47 @@ export default function App() {
   const [comparisonMetric, setComparisonMetric] = useState('confWinPct');
   const [ncaaTab, setNcaaTab] = useState('overview');
 
+  // Season feed state
+  const [seasonTab, setSeasonTab] = useState('schedule');
+  const [big12View, setBig12View] = useState('live');
+  const [feed, setFeed] = useState(null);
+  const [feedStatus, setFeedStatus] = useState('loading');
+  const [feedCachedAt, setFeedCachedAt] = useState(null);
+  const [feedError, setFeedError] = useState(null);
+  const [feedRefreshing, setFeedRefreshing] = useState(false);
+
   // Load Big 12 data
   useEffect(() => {
     setBig12Data(big12TeamsData);
   }, []);
+
+  // Season feed: paints from cache immediately, then revalidates. Never
+  // throws — a failure just leaves the season screens in their empty state.
+  const applyFeed = (result) => {
+    if (result.data) setFeed(result.data);
+    setFeedStatus(result.status);
+    setFeedCachedAt(result.cachedAt);
+    setFeedError(result.error);
+  };
+
+  useEffect(() => {
+    let live = true;
+    loadSeasonFeed({ onUpdate: (r) => { if (live) applyFeed(r); } });
+    return () => { live = false; };
+  }, []);
+
+  const refreshFeed = async () => {
+    setFeedRefreshing(true);
+    try {
+      applyFeed(await loadSeasonFeed({ onUpdate: () => {} }));
+    } finally {
+      setFeedRefreshing(false);
+    }
+  };
+
+  // Whichever season the feed knows about last; falls back to the tab label.
+  const currentSeason = latestSeason(feed) ?? '2026';
+  const today = new Date().toISOString().slice(0, 10);
 
   const roles = systemRoles[offensiveSystem];
   // Derived from the rules themselves, so a rule in a new category shows up in
@@ -390,10 +429,30 @@ export default function App() {
           getComparisonData={getComparisonData}
           formatMetricValue={formatMetricValue}
           getMaxValue={getMaxValue}
+          big12View={big12View}
+          setBig12View={setBig12View}
+          feed={feed}
+          today={today}
+          season={currentSeason}
         />
       )}
 
-      {mainMode === 'ncaa' && <Ncaa ncaaTab={ncaaTab} setNcaaTab={setNcaaTab} />}
+      {mainMode === 'season' && (
+        <Season
+          seasonTab={seasonTab}
+          setSeasonTab={setSeasonTab}
+          ncaaTab={ncaaTab}
+          setNcaaTab={setNcaaTab}
+          feed={feed}
+          feedStatus={feedStatus}
+          feedCachedAt={feedCachedAt}
+          feedError={feedError}
+          refreshFeed={refreshFeed}
+          feedRefreshing={feedRefreshing}
+          today={today}
+          season={currentSeason}
+        />
+      )}
     </div>
   );
 }

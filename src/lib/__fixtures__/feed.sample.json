@@ -1,0 +1,361 @@
+{
+ "formatVersion": 1,
+ "generatedAt": "2026-08-16T09:31:41Z",
+ "team": "Kansas Jayhawks Women's Volleyball",
+ "players": [
+  {
+   "name": "Aisha Aiono",
+   "jerseyNumber": "24",
+   "position": "MB",
+   "height": "6-3",
+   "active": true
+  },
+  {
+   "name": "Audra Wilmes",
+   "jerseyNumber": "6",
+   "position": "OH",
+   "height": "",
+   "active": false
+  },
+  {
+   "name": "Aurora Papac",
+   "jerseyNumber": "17",
+   "position": "MB",
+   "height": "",
+   "active": false
+  },
+  {
+   "name": "Avery Poulton",
+   "jerseyNumber": "21",
+   "position": "Pin",
+   "height": "6-2",
+   "active": true
+  }
+ ],
+ "matches": [
+  {
+   "date": "2025-08-23",
+   "opponent": "Vanderbilt",
+   "season": "2025",
+   "teamSets": 3,
+   "opponentSets": 2,
+   "setScores": "19-25, 25-18, 24-26, 25-20, 15-4",
+   "venue": "Pinnacle Bank Arena",
+   "city": "Lincoln, NE",
+   "opponentStats": {
+    "sp": 5,
+    "k": 61,
+    "e": 42,
+    "ta": 176,
+    "a": 58,
+    "sa": 5,
+    "se": 7,
+    "d": 59,
+    "bs": 4,
+    "ba": 13,
+    "re": 6,
+    "bhe": 0
+   },
+   "teamStats": {
+    "sp": 5,
+    "k": 53,
+    "e": 25,
+    "ta": 151,
+    "a": 49,
+    "sa": 6,
+    "se": 2,
+    "d": 56,
+    "bs": 1,
+    "ba": 29,
+    "re": 5,
+    "bhe": 0
+   },
+   "home": false
+  },
+  {
+   "date": "2025-08-25",
+   "opponent": "Penn St.",
+   "season": "2025",
+   "teamSets": 2,
+   "opponentSets": 3,
+   "setScores": "22-25, 26-24, 25-16, 28-30, 12-15",
+   "venue": "Sanford Pentagon",
+   "city": "Sioux Falls, SD",
+   "teamStats": {
+    "sp": 5,
+    "k": 70,
+    "e": 22,
+    "ta": 159,
+    "a": 68,
+    "sa": 4,
+    "se": 11,
+    "d": 58,
+    "bs": 2,
+    "ba": 27,
+    "re": 5,
+    "bhe": 0
+   },
+   "opponentStats": {
+    "sp": 5,
+    "k": 72,
+    "e": 29,
+    "ta": 167,
+    "a": 65,
+    "sa": 5,
+    "se": 9,
+    "d": 58,
+    "bs": 0,
+    "ba": 14,
+    "re": 4,
+    "bhe": 0
+   },
+   "home": false,
+   "neutral": true
+  },
+  {
+   "date": "2025-12-12",
+   "opponent": "Nebraska",
+   "season": "2025",
+   "teamSets": 0,
+   "opponentSets": 3,
+   "setScores": "12-25, 11-25, 12-25",
+   "venue": "",
+   "city": "",
+   "opponentStats": {
+    "sp": 3,
+    "k": 41,
+    "e": 5,
+    "ta": 80,
+    "a": 38,
+    "sa": 6,
+    "se": 3,
+    "d": 48,
+    "bs": 3,
+    "ba": 14,
+    "re": 1,
+    "bhe": 0
+   },
+   "teamStats": {
+    "sp": 3,
+    "k": 25,
+    "e": 22,
+    "ta": 103,
+    "a": 25,
+    "sa": 1,
+    "se": 6,
+    "d": 30,
+    "bs": 0,
+    "ba": 2,
+    "re": 6,
+    "bhe": 0
+   },
+   "home": false
+  },
+  {
+   "date": "2026-08-22",
+   "opponent": "Creighton (Exh.)",
+   "season": "2026",
+   "home": true
+  },
+  {
+   "date": "2026-08-28",
+   "opponent": "Pittsburgh",
+   "season": "2026",
+   "home": false
+  },
+  {
+   "date": "2026-08-30",
+   "opponent": "Stanford",
+   "season": "2026",
+   "home": true
+  },
+  {
+   "date": "2026-09-03",
+   "opponent": "Lipscomb",
+   "season": "2026",
+   "home": false
+  }
+ ],
+ "standings": [
+  {
+   "season": "2025",
+   "team": "Arizona St.",
+   "seo": "arizona-st",
+   "confW": 17,
+   "confL": 1,
+   "overallW": 28,
+   "overallL": 4,
+   "nationalRank": 12,
+   "rpiRank": 6
+  },
+  {
+   "season": "2025",
+   "team": "Kansas",
+   "seo": "kansas",
+   "confW": 13,
+   "confL": 5,
+   "overallW": 24,
+   "overallL": 11,
+   "nationalRank": 14,
+   "rpiRank": 14
+  },
+  {
+   "season": "2025",
+   "team": "Iowa St.",
+   "seo": "iowa-st",
+   "confW": 12,
+   "confL": 6,
+   "overallW": 23,
+   "overallL": 8,
+   "nationalRank": 22,
+   "rpiRank": 26
+  },
+  {
+   "season": "2025",
+   "team": "Colorado",
+   "seo": "colorado",
+   "confW": 12,
+   "confL": 6,
+   "overallW": 23,
+   "overallL": 9,
+   "nationalRank": 22,
+   "rpiRank": 22
+  }
+ ],
+ "polls": [
+  {
+   "season": "2025",
+   "name": "AVCA Coaches Poll",
+   "updated": "Through Games DEC. 21, 2025",
+   "rows": [
+    {
+     "rank": 1,
+     "rankLabel": "1",
+     "team": "Texas A&M",
+     "record": "29-4",
+     "points": "1525",
+     "previous": "6",
+     "firstPlaceVotes": 61,
+     "big12": false
+    },
+    {
+     "rank": 2,
+     "rankLabel": "2",
+     "team": "Kentucky",
+     "record": "30-3",
+     "points": "1452",
+     "previous": "2",
+     "firstPlaceVotes": 0,
+     "big12": false
+    },
+    {
+     "rank": 3,
+     "rankLabel": "3",
+     "team": "Nebraska",
+     "record": "33-1",
+     "points": "1385",
+     "previous": "1",
+     "firstPlaceVotes": 0,
+     "big12": false
+    },
+    {
+     "rank": 4,
+     "rankLabel": "4",
+     "team": "Pittsburgh",
+     "record": "30-5",
+     "points": "1338",
+     "previous": "4",
+     "firstPlaceVotes": 0,
+     "big12": false
+    },
+    {
+     "rank": 5,
+     "rankLabel": "5",
+     "team": "Wisconsin",
+     "record": "28-5",
+     "points": "1310",
+     "previous": "10",
+     "firstPlaceVotes": 0,
+     "big12": false
+    },
+    {
+     "rank": 6,
+     "rankLabel": "6",
+     "team": "Texas",
+     "record": "26-4",
+     "points": "1192",
+     "previous": "3",
+     "firstPlaceVotes": 0,
+     "big12": false
+    }
+   ]
+  },
+  {
+   "season": "2026",
+   "name": "AVCA Coaches Poll",
+   "updated": "Through Games AUG. 10, 2026",
+   "rows": [
+    {
+     "rank": 1,
+     "rankLabel": "1",
+     "team": "Nebraska",
+     "record": "",
+     "points": "1568",
+     "previous": "",
+     "firstPlaceVotes": 57,
+     "big12": false
+    },
+    {
+     "rank": 2,
+     "rankLabel": "2",
+     "team": "Texas",
+     "record": "",
+     "points": "1427",
+     "previous": "",
+     "firstPlaceVotes": 1,
+     "big12": false
+    },
+    {
+     "rank": 3,
+     "rankLabel": "3",
+     "team": "Kentucky",
+     "record": "",
+     "points": "1398",
+     "previous": "",
+     "firstPlaceVotes": 4,
+     "big12": false
+    },
+    {
+     "rank": 4,
+     "rankLabel": "4",
+     "team": "Pittsburgh",
+     "record": "",
+     "points": "1383",
+     "previous": "",
+     "firstPlaceVotes": 0,
+     "big12": false
+    },
+    {
+     "rank": 5,
+     "rankLabel": "5",
+     "team": "Stanford",
+     "record": "",
+     "points": "1312",
+     "previous": "",
+     "firstPlaceVotes": 0,
+     "big12": false
+    },
+    {
+     "rank": 6,
+     "rankLabel": "6",
+     "team": "Wisconsin",
+     "record": "",
+     "points": "1268",
+     "previous": "",
+     "firstPlaceVotes": 0,
+     "big12": false
+    }
+   ]
+  }
+ ]
+}
