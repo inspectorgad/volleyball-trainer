@@ -40,11 +40,11 @@ export default function PlayAlong({
         </div>
       </div>
 
-      <div style={{ marginBottom: '2rem', display: 'flex', gap: '0.5rem', justifyContent: 'center' }}>
+      <div role="tablist" aria-label="Offensive system" style={{ marginBottom: '2rem', display: 'flex', gap: '0.5rem', justifyContent: 'center' }}>
         {['5-1', '6-2', '4-2'].map(system => (
-          <div key={system} className={`tab-btn ${offensiveSystem === system ? 'active' : ''}`} onClick={() => setOffensiveSystem(system)} style={{ padding: '0.5rem 1rem', background: offensiveSystem === system ? '#FF6B35' : 'rgba(255, 255, 255, 0.1)', border: '2px solid', borderColor: offensiveSystem === system ? '#FF6B35' : 'rgba(255, 255, 255, 0.2)', borderRadius: '0', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1rem', letterSpacing: '0.1em', color: offensiveSystem === system ? '#0f0f23' : '#eee' }}>
+          <button key={system} type="button" role="tab" aria-selected={offensiveSystem === system} className={`tab-btn ${offensiveSystem === system ? 'active' : ''}`} onClick={() => setOffensiveSystem(system)} style={{ padding: '0.5rem 1rem', background: offensiveSystem === system ? '#FF6B35' : 'rgba(255, 255, 255, 0.1)', border: '2px solid', borderColor: offensiveSystem === system ? '#FF6B35' : 'rgba(255, 255, 255, 0.2)', borderRadius: '0', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1rem', letterSpacing: '0.1em', color: offensiveSystem === system ? '#0f0f23' : '#eee' }}>
             {system}
-          </div>
+          </button>
         ))}
       </div>
 

@@ -28,19 +28,19 @@ export default function RulesHub({
 
   return (
     <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
-        <div className={`tab-btn ${rulesTab === 'reference' ? 'active' : ''}`} onClick={() => setRulesTab('reference')} style={{ padding: '0.75rem 2rem', background: rulesTab === 'reference' ? '#FF6B35' : 'rgba(255, 255, 255, 0.1)', border: '2px solid', borderColor: rulesTab === 'reference' ? '#FF6B35' : 'rgba(255, 255, 255, 0.2)', borderRadius: '0', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.1em', color: rulesTab === 'reference' ? '#0f0f23' : '#eee' }}>
+      <div role="tablist" aria-label="Rules Hub sections" style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
+        <button type="button" role="tab" aria-selected={rulesTab === 'reference'} className={`tab-btn ${rulesTab === 'reference' ? 'active' : ''}`} onClick={() => setRulesTab('reference')} style={{ padding: '0.75rem 2rem', background: rulesTab === 'reference' ? '#FF6B35' : 'rgba(255, 255, 255, 0.1)', border: '2px solid', borderColor: rulesTab === 'reference' ? '#FF6B35' : 'rgba(255, 255, 255, 0.2)', borderRadius: '0', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.1em', color: rulesTab === 'reference' ? '#0f0f23' : '#eee' }}>
           <BookOpen size={20} style={{ display: 'inline', marginRight: '0.5rem', verticalAlign: 'middle' }} /> REFERENCE
-        </div>
-        <div className={`tab-btn ${rulesTab === 'quiz' ? 'active' : ''}`} onClick={() => setRulesTab('quiz')} style={{ padding: '0.75rem 2rem', background: rulesTab === 'quiz' ? '#FF6B35' : 'rgba(255, 255, 255, 0.1)', border: '2px solid', borderColor: rulesTab === 'quiz' ? '#FF6B35' : 'rgba(255, 255, 255, 0.2)', borderRadius: '0', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.1em', color: rulesTab === 'quiz' ? '#0f0f23' : '#eee' }}>
+        </button>
+        <button type="button" role="tab" aria-selected={rulesTab === 'quiz'} className={`tab-btn ${rulesTab === 'quiz' ? 'active' : ''}`} onClick={() => setRulesTab('quiz')} style={{ padding: '0.75rem 2rem', background: rulesTab === 'quiz' ? '#FF6B35' : 'rgba(255, 255, 255, 0.1)', border: '2px solid', borderColor: rulesTab === 'quiz' ? '#FF6B35' : 'rgba(255, 255, 255, 0.2)', borderRadius: '0', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.1em', color: rulesTab === 'quiz' ? '#0f0f23' : '#eee' }}>
           <Trophy size={20} style={{ display: 'inline', marginRight: '0.5rem', verticalAlign: 'middle' }} /> QUIZ
-        </div>
-        <div className={`tab-btn ${rulesTab === 'demos' ? 'active' : ''}`} onClick={() => setRulesTab('demos')} style={{ padding: '0.75rem 2rem', background: rulesTab === 'demos' ? '#FF6B35' : 'rgba(255, 255, 255, 0.1)', border: '2px solid', borderColor: rulesTab === 'demos' ? '#FF6B35' : 'rgba(255, 255, 255, 0.2)', borderRadius: '0', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.1em', color: rulesTab === 'demos' ? '#0f0f23' : '#eee' }}>
+        </button>
+        <button type="button" role="tab" aria-selected={rulesTab === 'demos'} className={`tab-btn ${rulesTab === 'demos' ? 'active' : ''}`} onClick={() => setRulesTab('demos')} style={{ padding: '0.75rem 2rem', background: rulesTab === 'demos' ? '#FF6B35' : 'rgba(255, 255, 255, 0.1)', border: '2px solid', borderColor: rulesTab === 'demos' ? '#FF6B35' : 'rgba(255, 255, 255, 0.2)', borderRadius: '0', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.1em', color: rulesTab === 'demos' ? '#0f0f23' : '#eee' }}>
           <Eye size={20} style={{ display: 'inline', marginRight: '0.5rem', verticalAlign: 'middle' }} /> VISUAL GUIDES
-        </div>
-        <div className={`tab-btn ${rulesTab === 'signals' ? 'active' : ''}`} onClick={() => setRulesTab('signals')} style={{ padding: '0.75rem 2rem', background: rulesTab === 'signals' ? '#FF6B35' : 'rgba(255, 255, 255, 0.1)', border: '2px solid', borderColor: rulesTab === 'signals' ? '#FF6B35' : 'rgba(255, 255, 255, 0.2)', borderRadius: '0', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.1em', color: rulesTab === 'signals' ? '#0f0f23' : '#eee' }}>
+        </button>
+        <button type="button" role="tab" aria-selected={rulesTab === 'signals'} className={`tab-btn ${rulesTab === 'signals' ? 'active' : ''}`} onClick={() => setRulesTab('signals')} style={{ padding: '0.75rem 2rem', background: rulesTab === 'signals' ? '#FF6B35' : 'rgba(255, 255, 255, 0.1)', border: '2px solid', borderColor: rulesTab === 'signals' ? '#FF6B35' : 'rgba(255, 255, 255, 0.2)', borderRadius: '0', fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.2rem', letterSpacing: '0.1em', color: rulesTab === 'signals' ? '#0f0f23' : '#eee' }}>
           <AlertCircle size={20} style={{ display: 'inline', marginRight: '0.5rem', verticalAlign: 'middle' }} /> REF SIGNALS
-        </div>
+        </button>
       </div>
 
       {rulesTab === 'reference' && (
@@ -51,9 +51,9 @@ export default function RulesHub({
 
           <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
             {categories.map(cat => (
-              <div key={cat} onClick={() => setSelectedCategory(cat)} style={{ padding: '0.5rem 1rem', background: selectedCategory === cat ? (cat === NEW_2026 ? '#FFC92D' : '#4ECDC4') : (cat === NEW_2026 ? 'rgba(255, 201, 45, 0.12)' : 'rgba(255, 255, 255, 0.1)'), border: '2px solid', borderColor: selectedCategory === cat ? (cat === NEW_2026 ? '#FFC92D' : '#4ECDC4') : (cat === NEW_2026 ? 'rgba(255, 201, 45, 0.5)' : 'rgba(255, 255, 255, 0.2)'), borderRadius: '20px', fontSize: '0.85rem', cursor: 'pointer', color: selectedCategory === cat ? '#0f0f23' : (cat === NEW_2026 ? '#FFD866' : '#eee'), fontWeight: selectedCategory === cat || cat === NEW_2026 ? '700' : '400' }}>
+              <button key={cat} type="button" aria-pressed={selectedCategory === cat} onClick={() => setSelectedCategory(cat)} style={{ font: 'inherit', padding: '0.5rem 1rem', background: selectedCategory === cat ? (cat === NEW_2026 ? '#FFC92D' : '#4ECDC4') : (cat === NEW_2026 ? 'rgba(255, 201, 45, 0.12)' : 'rgba(255, 255, 255, 0.1)'), border: '2px solid', borderColor: selectedCategory === cat ? (cat === NEW_2026 ? '#FFC92D' : '#4ECDC4') : (cat === NEW_2026 ? 'rgba(255, 201, 45, 0.5)' : 'rgba(255, 255, 255, 0.2)'), borderRadius: '20px', fontSize: '0.85rem', cursor: 'pointer', color: selectedCategory === cat ? '#0f0f23' : (cat === NEW_2026 ? '#FFD866' : '#eee'), fontWeight: selectedCategory === cat || cat === NEW_2026 ? '700' : '400' }}>
                 {cat.toUpperCase()}{cat === NEW_2026 ? ` · ${rules2026Count}` : ''}
-              </div>
+              </button>
             ))}
           </div>
 
@@ -67,12 +67,12 @@ export default function RulesHub({
             </div>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))', gap: '1.5rem' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(350px, 100%), 1fr))', gap: '1.5rem' }}>
             {filteredRules.map(rule => (
               <div key={rule.id} className="rule-card" onClick={() => markRuleStudied(rule.id)} style={{ background: rule.new2026 || rule.changed2026 ? 'rgba(255, 201, 45, 0.07)' : 'rgba(255, 255, 255, 0.05)', border: '2px solid', borderColor: rule.new2026 || rule.changed2026 ? 'rgba(255, 201, 45, 0.45)' : 'rgba(255, 255, 255, 0.1)', borderRadius: '8px', padding: '1.5rem', position: 'relative' }}>
                 {studiedRules.has(rule.id) && <div style={{ position: 'absolute', top: '1rem', right: '1rem' }}><CheckCircle size={24} color="#95E1D3" /></div>}
                 <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center', marginBottom: '0.75rem' }}>
-                  <span style={{ display: 'inline-block', padding: '0.25rem 0.75rem', background: 'rgba(255, 140, 90, 0.25)', border: '1px solid rgba(255, 140, 90, 0.6)', borderRadius: '12px', fontSize: '0.75rem', color: '#FF8C5A', fontWeight: '700' }}>{rule.category}</span>
+                  <span style={{ display: 'inline-block', padding: '0.25rem 0.75rem', background: 'rgba(255, 140, 90, 0.25)', border: '1px solid rgba(255, 140, 90, 0.6)', borderRadius: '12px', fontSize: '0.75rem', color: '#FFB495', fontWeight: '700' }}>{rule.category}</span>
                   {(rule.new2026 || rule.changed2026) && (
                     <span style={{ display: 'inline-block', padding: '0.25rem 0.6rem', background: '#FFC92D', borderRadius: '3px', fontSize: '0.7rem', color: '#3B2A00', fontWeight: '700', letterSpacing: '0.08em' }}>
                       {rule.new2026 ? 'NEW 2026' : 'REVISED 2026'}
@@ -89,7 +89,20 @@ export default function RulesHub({
                     <strong style={{ letterSpacing: '0.06em' }}>BEFORE 2026: </strong>{rule.was}
                   </p>
                 )}
-                <div style={{ fontSize: '0.75rem', color: '#b0b0b0', fontStyle: 'italic' }}>Difficulty: {rule.difficulty}</div>
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem', flexWrap: 'wrap' }}>
+                  <span style={{ fontSize: '0.75rem', color: '#b0b0b0', fontStyle: 'italic' }}>Difficulty: {rule.difficulty}</span>
+                  {/* The card itself is clickable for mice, but a card cannot
+                      be a <button> — it contains a heading — so this is the
+                      control keyboards and screen readers actually get. */}
+                  <button
+                    type="button"
+                    aria-pressed={studiedRules.has(rule.id)}
+                    onClick={(e) => { e.stopPropagation(); markRuleStudied(rule.id); }}
+                    style={{ padding: '0.4rem 0.8rem', borderRadius: '4px', fontSize: '0.7rem', letterSpacing: '0.08em', fontWeight: '700', font: 'inherit', cursor: 'pointer',  background: studiedRules.has(rule.id) ? 'rgba(149, 225, 211, 0.2)' : 'rgba(255, 255, 255, 0.08)', border: '1px solid', borderColor: studiedRules.has(rule.id) ? '#95E1D3' : 'rgba(255, 255, 255, 0.25)', color: studiedRules.has(rule.id) ? '#95E1D3' : '#dfe6f2' }}
+                  >
+                    {studiedRules.has(rule.id) ? 'STUDIED' : 'MARK STUDIED'}
+                  </button>
+                </div>
               </div>
             ))}
           </div>
@@ -141,7 +154,7 @@ export default function RulesHub({
                   <h3 style={{ fontSize: '1.1rem', lineHeight: '1.6', color: '#eee', marginBottom: '1.5rem' }}>{question.question}</h3>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                     {question.options.map((option, optIdx) => (
-                      <div key={optIdx} className={`quiz-option ${quizAnswers[question.id] === optIdx ? 'selected' : ''}`} onClick={() => handleQuizAnswer(question.id, optIdx)} style={{ padding: '1rem', background: quizAnswers[question.id] === optIdx ? '#4ECDC4' : 'rgba(255, 255, 255, 0.05)', border: '2px solid', borderColor: quizAnswers[question.id] === optIdx ? '#4ECDC4' : 'rgba(255, 255, 255, 0.2)', borderRadius: '4px', color: quizAnswers[question.id] === optIdx ? '#0f0f23' : '#eee', fontWeight: quizAnswers[question.id] === optIdx ? '700' : '400' }}>{option}</div>
+                      <button key={optIdx} type="button" aria-pressed={quizAnswers[question.id] === optIdx} className={`quiz-option ${quizAnswers[question.id] === optIdx ? 'selected' : ''}`} onClick={() => handleQuizAnswer(question.id, optIdx)} style={{ font: 'inherit', textAlign: 'left', width: '100%', padding: '1rem', background: quizAnswers[question.id] === optIdx ? '#4ECDC4' : 'rgba(255, 255, 255, 0.05)', border: '2px solid', borderColor: quizAnswers[question.id] === optIdx ? '#4ECDC4' : 'rgba(255, 255, 255, 0.2)', borderRadius: '4px', color: quizAnswers[question.id] === optIdx ? '#0f0f23' : '#eee', fontWeight: quizAnswers[question.id] === optIdx ? '700' : '400' }}>{option}</button>
                     ))}
                   </div>
                 </div>
@@ -190,7 +203,7 @@ export default function RulesHub({
                   <p style={{ fontSize: '0.9rem', color: '#e0e0e0', marginBottom: '1rem' }}>Based on your quiz results, we recommend reviewing these categories:</p>
                   <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
                     {getRecommendations().map(cat => (
-                      <div key={cat} onClick={() => { setRulesTab('reference'); setSelectedCategory(cat); }} style={{ padding: '0.5rem 1rem', background: '#FF6B35', border: '2px solid #FF6B35', borderRadius: '20px', fontSize: '0.85rem', cursor: 'pointer', color: '#0f0f23', fontWeight: '700' }}>{cat} â†’</div>
+                      <button key={cat} type="button" onClick={() => { setRulesTab('reference'); setSelectedCategory(cat); }} style={{ font: 'inherit', padding: '0.5rem 1rem', background: '#FF6B35', border: '2px solid #FF6B35', borderRadius: '20px', fontSize: '0.85rem', cursor: 'pointer', color: '#0f0f23', fontWeight: '700' }}>{cat} â†’</button>
                     ))}
                   </div>
                 </div>
@@ -219,7 +232,12 @@ export default function RulesHub({
                 <div style={{ display: 'inline-block', padding: '0.25rem 0.75rem', background: 'rgba(255, 68, 68, 0.25)', border: '1px solid rgba(255, 68, 68, 0.6)', borderRadius: '12px', fontSize: '0.75rem', marginBottom: '0.75rem', color: '#FF4444', fontWeight: '700' }}>{demo.category}</div>
                 <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.5rem', color: '#4A9EFF', margin: '0.5rem 0', letterSpacing: '0.05em' }}>{demo.title}</h3>
                 <p style={{ fontSize: '0.9rem', color: '#e0e0e0', lineHeight: '1.6', marginBottom: '0.5rem' }}>{demo.description}</p>
-                <div style={{ fontSize: '0.8rem', color: '#4A9EFF', fontFamily: '"Bebas Neue", sans-serif' }}>{selectedDemo === demo.id ? '▼ HIDE DETAILS' : '▶ VIEW DETAILS'}</div>
+                <button
+                  type="button"
+                  aria-expanded={selectedDemo === demo.id}
+                  onClick={(e) => { e.stopPropagation(); setSelectedDemo(demo.id === selectedDemo ? null : demo.id); }}
+                  style={{ fontSize: '0.8rem', color: '#4A9EFF', fontFamily: '"Bebas Neue", sans-serif', background: 'none', border: 0, padding: '0.25rem 0', cursor: 'pointer', letterSpacing: '0.05em' }}
+                >{selectedDemo === demo.id ? '▼ HIDE DETAILS' : '▶ VIEW DETAILS'}</button>
               </div>
             ))}
           </div>

@@ -297,7 +297,7 @@ export default function App() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #0051BA 0%, #001A57 100%)', fontFamily: '"Space Mono", "Courier New", monospace', color: '#eee', padding: '2rem' }}>
+    <div style={{ minHeight: '100vh', background: 'linear-gradient(135deg, #0051BA 0%, #001A57 100%)', fontFamily: '"Space Mono", "Courier New", monospace', color: '#eee', padding: 'clamp(0.75rem, 4vw, 2rem)' }}>
       <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
         <h1 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '3.5rem', margin: 0, color: '#FFFFFF', letterSpacing: '0.1em', textShadow: '0 0 30px rgba(232, 0, 13, 0.6), 0 0 60px rgba(0, 81, 186, 0.4), 0 4px 8px rgba(0, 0, 0, 0.5)' }}>
           VOLLEYBALL TRAINER

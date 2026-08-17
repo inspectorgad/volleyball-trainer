@@ -104,26 +104,26 @@ function ScheduleRow({ match, rank, today }) {
   const isNext = !played && away !== null && away >= 0;
 
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'minmax(84px, auto) 1fr auto', gap: '1rem', alignItems: 'center', padding: '0.7rem 0.9rem', borderBottom: '1px solid rgba(255, 255, 255, 0.07)', background: isNext && away <= 7 ? 'rgba(0, 81, 186, 0.16)' : 'transparent', boxShadow: isNext && away <= 7 ? 'inset 3px 0 0 #4C8FF0' : 'none' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'minmax(68px, auto) minmax(0, 1fr) auto', gap: '1rem', alignItems: 'center', padding: '0.7rem 0.9rem', borderBottom: '1px solid rgba(255, 255, 255, 0.07)', background: isNext && away <= 7 ? 'rgba(0, 81, 186, 0.16)' : 'transparent', boxShadow: isNext && away <= 7 ? 'inset 3px 0 0 #4C8FF0' : 'none' }}>
       <span style={{ fontSize: '0.78rem', color: '#93A5C0' }}>{match.date}</span>
       <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', flexWrap: 'wrap', color: '#e2e9f5' }}>
-        <span style={{ fontSize: '0.72rem', color: '#7E90AE' }}>{match.home ? 'vs' : 'at'}</span>
+        <span style={{ fontSize: '0.72rem', color: '#93A5C0' }}>{match.home ? 'vs' : 'at'}</span>
         <span style={{ fontWeight: 700 }}>{match.opponent}</span>
         {rank && (
           <span style={{ fontSize: '0.66rem', fontWeight: 700, background: 'rgba(232, 0, 13, 0.2)', border: '1px solid rgba(232, 0, 13, 0.5)', color: '#FF8A90', padding: '1px 6px', borderRadius: '3px' }}>#{rank}</span>
         )}
         {isExhibition(match) && (
-          <span style={{ fontSize: '0.62rem', letterSpacing: '0.1em', color: '#7E90AE' }}>EXHIBITION</span>
+          <span style={{ fontSize: '0.62rem', letterSpacing: '0.1em', color: '#93A5C0' }}>EXHIBITION</span>
         )}
       </span>
-      <span style={{ textAlign: 'right', fontSize: '0.8rem', minWidth: '92px' }}>
+      <span style={{ textAlign: 'right', fontSize: '0.8rem', minWidth: '60px' }}>
         {played ? (
           <>
             <strong style={{ color: won ? '#95E1D3' : '#FF8A90' }}>{won ? 'W' : 'L'} {match.teamSets}-{match.opponentSets}</strong>
-            {match.setScores && <div style={{ fontSize: '0.66rem', color: '#7E90AE' }}>{match.setScores}</div>}
+            {match.setScores && <div style={{ fontSize: '0.66rem', color: '#93A5C0' }}>{match.setScores}</div>}
           </>
         ) : (
-          <span style={{ color: '#7E90AE' }}>{away === null ? '' : away === 0 ? 'today' : away > 0 ? `in ${away}d` : ''}</span>
+          <span style={{ color: '#93A5C0' }}>{away === null ? '' : away === 0 ? 'today' : away > 0 ? `in ${away}d` : ''}</span>
         )}
       </span>
     </div>
@@ -241,7 +241,7 @@ export default function Season({
                 ))}
               </div>
             )}
-            <p style={{ fontSize: '0.7rem', color: '#7E90AE', marginTop: '0.9rem', lineHeight: 1.5 }}>
+            <p style={{ fontSize: '0.7rem', color: '#93A5C0', marginTop: '0.9rem', lineHeight: 1.5 }}>
               Rank chips are the opponent's position in the AVCA poll above. Dates come from kuathletics.com; results from the NCAA box scores.
             </p>
           </div>
@@ -295,7 +295,7 @@ export default function Season({
               </tbody>
             </table>
           )}
-          <p style={{ fontSize: '0.72rem', color: '#7E90AE', marginTop: '0.9rem' }}>
+          <p style={{ fontSize: '0.72rem', color: '#93A5C0', marginTop: '0.9rem' }}>
             Kansas highlighted in crimson, other Big 12 teams in gold.
           </p>
         </div>
@@ -311,7 +311,7 @@ export default function Season({
           <p style={{ color: '#93A5C0', fontSize: '0.88rem', maxWidth: '480px', margin: '1.6rem auto 0', lineHeight: 1.65 }}>
             The {season} Division I championship field is announced in December. The bracket will appear here once it is drawn — until then the 2025 bracket is under the Archive tab.
           </p>
-          <div style={{ marginTop: '1.6rem', display: 'inline-flex', gap: '0.6rem', alignItems: 'center', color: '#7E90AE', fontSize: '0.78rem' }}>
+          <div style={{ marginTop: '1.6rem', display: 'inline-flex', gap: '0.6rem', alignItems: 'center', color: '#93A5C0', fontSize: '0.78rem' }}>
             <TrendingUp size={16} />
             {summary?.scheduled?.length ?? 0} matches scheduled · {summary?.played?.length ?? 0} played
           </div>

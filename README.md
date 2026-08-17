@@ -90,10 +90,32 @@ src/
 Content lives in `src/data/` — editing a rule, question or scenario no longer
 means scrolling a 3,700-line HTML file.
 
+## Accessibility
+
+Every control is a real focusable element: 38 buttons, no unnamed ones, and
+`role="tab"` / `aria-pressed` / `aria-expanded` where state matters. The rule
+and demo cards stay click-through for mice but carry their own buttons, since a
+card containing a heading cannot legally be one.
+
+Colour is measured rather than eyeballed — contrast ratios are computed against
+the actual composited background, including translucent card layers. Everything
+meets WCAG AA. Layout is checked for horizontal overflow down to 320px.
+
+`prefers-reduced-motion` disables animation and hover transforms.
+
 ## Updating the service worker
 
 Nothing to do. Workbox revisions every asset by content hash on each build, so
 the old routine of hand-bumping a `CACHE_NAME` constant is gone.
+
+`public/service-worker.js` is a **kill switch, not a service worker** — do not
+delete it. The pre-Vite app registered that path with an unconditional
+cache-first handler that never revalidates, so anyone who opened the old build
+would be served it forever and would never load the new bundle. Restoring the
+path with a self-destructing worker is the only thing that reaches them: the
+browser re-fetches a registered worker's own script on update checks, and this
+one wipes the caches, unregisters itself and reloads the page onto the real
+site.
 
 ## 2026 rules
 

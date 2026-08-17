@@ -107,7 +107,7 @@ export default function Big12({
                     </div>
                   ))}
                 </div>
-                <p style={{ fontSize: '0.72rem', color: '#7E90AE', marginTop: '1rem', lineHeight: 1.55 }}>
+                <p style={{ fontSize: '0.72rem', color: '#93A5C0', marginTop: '1rem', lineHeight: 1.55 }}>
                   Derived from {summary.played.length} box scores. Block assists count as a half, matching NCAA convention.
                 </p>
               </>
@@ -118,7 +118,7 @@ export default function Big12({
             )}
           </div>
 
-          <p style={{ fontSize: '0.75rem', color: '#7E90AE', marginTop: '1.5rem', lineHeight: 1.6, textAlign: 'center', maxWidth: '760px', marginInline: 'auto' }}>
+          <p style={{ fontSize: '0.75rem', color: '#93A5C0', marginTop: '1.5rem', lineHeight: 1.6, textAlign: 'center', maxWidth: '760px', marginInline: 'auto' }}>
             The feed carries records and rankings for all fifteen teams, but per-set stats only for Kansas — they are computed from box scores, and the scrape only captures those for Kansas matches. For a per-set comparison across the conference, see 2025 Final.
           </p>
         </>

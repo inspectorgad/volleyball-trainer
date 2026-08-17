@@ -519,7 +519,7 @@ export default function Archive2025({
                 <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.8rem', color: '#E8000D', marginBottom: '1rem' }}>
                   ELITE 8 (Dec 13-14, 2025)
                 </h3>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '1rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(350px, 100%), 1fr))', gap: '1rem' }}>
                   {[
                     {matchup: 'Nebraska Regional Winner vs Louisville Regional Winner', site: 'Higher Seed Site', status: 'TBD', ku: false, winner: null},
                     {matchup: 'Pittsburgh Regional Winner vs Stanford Regional Winner', site: 'Higher Seed Site', status: 'TBD', ku: false, winner: null},
@@ -701,7 +701,7 @@ export default function Archive2025({
                 <h3 style={{ fontFamily: '"Bebas Neue", sans-serif', fontSize: '1.8rem', color: '#E8000D', marginBottom: '1rem' }}>
                   ELITE 8 (Dec 13-14, 2025)
                 </h3>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '1rem' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(350px, 100%), 1fr))', gap: '1rem' }}>
                   {[
                     {team1: 'Texas A&M', team2: 'Nebraska', winner: 'Texas A&M', score: '3-2 (25-23, 22-25, 25-23, 20-25, 15-12)', site: 'Lincoln, NE', ku: false},
                     {team1: 'Wisconsin', team2: 'Texas', winner: 'Wisconsin', score: '3-1 (25-23, 25-21, 22-25, 25-20)', site: 'Austin, TX', ku: false},
