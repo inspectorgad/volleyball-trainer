@@ -39,6 +39,18 @@ npm run build    # production build into dist/
 npm run preview  # serve the built output
 ```
 
+## Android
+
+The Android build is a Trusted Web Activity wrapping the deployed PWA, so app
+content updates over the air — only changes under `android/` need a new APK.
+
+```
+https://github.com/inspectorgad/volleyball-trainer/releases/latest/download/volleyball-trainer.apk
+```
+
+Full setup, the Digital Asset Links handshake and how to add release signing:
+[docs/ANDROID.md](docs/ANDROID.md).
+
 ## Deploy
 
 Pushing to `main` runs `.github/workflows/deploy-pages.yml`, which tests,
@@ -56,6 +68,8 @@ domain.
 
 ```
 index.html              module entry (~25 lines)
+android/                Trusted Web Activity wrapper (no app source code)
+  site-root/            staged contents of inspectorgad.github.io
 vite.config.js          base path, PWA manifest, Vitest config
 public/                 icons, referee signal chart — copied verbatim
 src/

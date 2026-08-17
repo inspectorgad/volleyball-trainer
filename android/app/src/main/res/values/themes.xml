@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Only shown for the moment before Chrome takes over, so it just needs
+         to match the splash rather than style any real UI. -->
+    <style name="Theme.App" parent="android:Theme.Material.NoActionBar">
+        <item name="android:statusBarColor">@color/colorPrimary</item>
+        <item name="android:navigationBarColor">@color/colorPrimary</item>
+        <item name="android:windowBackground">@color/backgroundColor</item>
+    </style>
+</resources>

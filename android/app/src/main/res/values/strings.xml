@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Volleyball Trainer</string>
+
+    <!-- The deployed PWA. Must stay inside the scope declared in the web
+         manifest, or Chrome falls back to a normal Custom Tab. -->
+    <string name="launch_url" translatable="false">https://inspectorgad.github.io/volleyball-trainer/</string>
+
+    <!-- Half of the Digital Asset Links handshake: the app vouching for the
+         site. The other half is /.well-known/assetlinks.json on the site,
+         which names this package and its signing fingerprint. -->
+    <string name="asset_statements" translatable="false">
+        [{
+            \"relation\": [\"delegate_permission/common.handle_all_urls\"],
+            \"target\": {
+                \"namespace\": \"web\",
+                \"site\": \"https://inspectorgad.github.io\"
+            }
+        }]
+    </string>
+</resources>

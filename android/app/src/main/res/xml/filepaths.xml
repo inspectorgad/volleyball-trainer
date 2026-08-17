@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Required by androidbrowserhelper's FileProvider for web share targets and
+     downloads. Nothing is exposed beyond the app's own cache. -->
+<paths>
+    <cache-path name="twa-cache" path="." />
+</paths>

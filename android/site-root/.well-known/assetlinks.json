@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.github.inspectorgad.volleyballtrainer",
+      "sha256_cert_fingerprints": [
+        "D3:6C:6C:E0:17:AC:FC:46:43:4A:03:DD:62:CF:16:9E:A1:DC:B2:2F:2B:E6:F0:FB:FA:38:29:86:2C:70:18:D7"
+      ]
+    }
+  }
+]
