@@ -88,6 +88,26 @@ committed:
    Play Console → Setup → App signing. Google re-signs uploads with its own
    key, so the upload fingerprint alone is not what devices see.
 
+## FileProvider paths
+
+`res/xml/filepaths.xml` must declare a **files-path**, not a cache-path:
+
+```xml
+<files-path name="twa_splash" path="twa_splash/" />
+```
+
+androidbrowserhelper writes the splash image to
+`/data/data/<pkg>/files/twa_splash/splash_image.png` and hands it to Chrome
+through the FileProvider. With the wrong root, `getUriForFile` throws
+
+```
+IllegalArgumentException: Failed to find configured root that contains …
+```
+
+on a background thread during launch, and the app crashes every time it is
+opened. It builds, installs and passes every static check — the failure only
+shows on a device, in logcat.
+
 ## Project layout
 
 ```
