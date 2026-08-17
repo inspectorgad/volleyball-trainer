@@ -51,8 +51,4 @@ dependencies {
   // Supplies LauncherActivity, so the app itself needs no source code —
   // the whole app is the manifest plus these resources.
   implementation("com.google.androidbrowserhelper:androidbrowserhelper:2.5.0")
-  // LauncherActivity is an AppCompatActivity, so the app theme has to descend
-  // from Theme.AppCompat. Declared explicitly rather than leaned on
-  // transitively, since the theme depends on it.
-  implementation("androidx.appcompat:appcompat:1.7.0")
 }

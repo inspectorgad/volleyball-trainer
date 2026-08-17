@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Required by androidbrowserhelper's FileProvider for web share targets and
-     downloads. Nothing is exposed beyond the app's own cache. -->
+<!--
+  androidbrowserhelper hands the splash image to Chrome through this
+  FileProvider, and it writes that image to
+    /data/data/<pkg>/files/twa_splash/splash_image.png
+  so the root has to be files-path. Declaring cache-path instead makes
+  getUriForFile throw
+    IllegalArgumentException: Failed to find configured root that contains …
+  on a background thread during launch, which crashes the app every time.
+-->
 <paths>
-    <cache-path name="twa-cache" path="." />
+    <files-path name="twa_splash" path="twa_splash/" />
 </paths>
