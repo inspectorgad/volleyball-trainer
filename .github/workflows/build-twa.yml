@@ -5,7 +5,10 @@ name: Build Android APK
 # Pages and the app picks it up on next launch with no reinstall.
 on:
   push:
-    branches: [main]
+    # Keep claude/** here until the app is confirmed working on a real device —
+    # this environment cannot build or run an APK, so CI is the only way to get
+    # a testable artifact out of a fix.
+    branches: [main, 'claude/**']
     paths:
       - 'android/**'
       - '.github/workflows/build-twa.yml'
