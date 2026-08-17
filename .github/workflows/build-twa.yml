@@ -5,7 +5,11 @@ name: Build Android APK
 # Pages and the app picks it up on next launch with no reinstall.
 on:
   push:
-    branches: [main]
+    # The feature branch is included so the Android build gets exercised before
+    # merge; this environment has no Android SDK and its egress policy blocks
+    # Google's Maven, so CI is the only place the APK can actually compile.
+    # Drop the claude/** entry once this lands on main.
+    branches: [main, 'claude/**']
     paths:
       - 'android/**'
       - '.github/workflows/build-twa.yml'
